@@ -89,13 +89,29 @@ class _LoginViewState extends State<LoginView> {
                       }else if(_passwordEditingController.text.length<6){
                         Utils.toastMessage("Password needs to be more than 6 characters!");
                       }else{
-                        // Map data ={
-                        //   // 'email' : _emailEditingController.text.toString(),
-                        //   // 'password': _passwordEditingController.text.toString()
-                        //   'email': 'eve.holt@reqres.in',
-                        //   'password': 'cityslicka'
-                        // };
-                        // authviewmodel.LoginApi(data , context);
+                       Map data = {
+                         //   // 'email' : _emailEditingController.text.toString(),
+                         //   // 'password': _passwordEditingController.text.toString()
+                         // {
+                         //   "key": "email",
+                         //   "value": "cupid@cupidknot.com",
+                         //   "type": "text",
+                         // },
+                         // {
+                         //   "key": "password",
+                         //   "value": "123456",
+                         //   "type": "text",
+                         // }
+                         "email": "eve.holt@reqres.in",
+                         "password": "cityslicka"
+
+
+
+                         // "email": "cupid@cupidknot.com",
+                         // "password": "123456",
+
+                       };
+                        authviewmodel.LoginApi(data , context);
                       }
 
                     }),

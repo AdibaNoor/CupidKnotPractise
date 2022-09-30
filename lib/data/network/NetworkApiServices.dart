@@ -24,8 +24,10 @@ class NetworkService extends BaseApiService{
   Future getPostApiResponse(String url, dynamic data)  async{
     dynamic responseJson;
     try{
-      Response response = await post(
+      Response response = await http.post(
           Uri.parse(url),
+          headers: { "content-type": "application/x-www-form-urlencoded",
+          },
           body: data
       ).timeout(Duration(seconds: 10));
       responseJson = returnResponse(response);
