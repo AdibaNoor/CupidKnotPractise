@@ -2,6 +2,7 @@ import 'package:cupid_knot_practise/utils/routes/route.dart';
 import 'package:cupid_knot_practise/utils/routes/route_name.dart';
 import 'package:cupid_knot_practise/view/home_view.dart';
 import 'package:cupid_knot_practise/view_model/auth_view_model.dart';
+import 'package:cupid_knot_practise/view_model/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_)=> AuthViewModel()),
+        ChangeNotifierProvider(create: (_)=> UserViewModel()),
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteNames.login,
+      initialRoute: RouteNames.splash,
       onGenerateRoute: Routes.generateRoute,
     ),);
   }

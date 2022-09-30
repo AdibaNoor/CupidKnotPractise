@@ -21,7 +21,7 @@ class ButtonCustom extends StatelessWidget {
             color: Colors.white
         ),
         height: 40,
-        width: 200,
+        width: 150,
         child:Center(child: loading? CircularProgressIndicator(color: Colors.black,) :Text(title, style: TextStyle(
             color: Colors.black87,
             fontSize: 20

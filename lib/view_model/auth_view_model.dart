@@ -1,7 +1,9 @@
+import 'package:cupid_knot_practise/view_model/user_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
+import '../model/user_model.dart';
 import '../repository/auth_repository.dart';
 import '../utils/routes/route_name.dart';
 import '../utils/utils.dart';
@@ -27,10 +29,10 @@ class AuthViewModel with ChangeNotifier{
     setloading(true);
     _myRepo.LoginApiFun(data).then((value){
       setloading(false);
-      // final _userPreferences = Provider.of<UserViewModel>(context, listen: false);
-      // _userPreferences.saveUser(UserModel(
-      //     token: value['token'].toString()
-      // ));
+      final _userPreferences = Provider.of<UserViewModel>(context, listen: false);
+      _userPreferences.saveUser(UserModel(
+          token: value['token'].toString()
+      ));
       Navigator.pushNamed(context, RouteNames.home);
       if(kDebugMode){
         print(value.toString());
@@ -48,7 +50,7 @@ class AuthViewModel with ChangeNotifier{
     setSignUploading(true);
     _myRepo.RegisterApiFun(data).then((value){
       setSignUploading(false);
-      Navigator.pushNamed(context, RouteNames.home);
+      Navigator.pushNamed(context, RouteNames.login);
       if(kDebugMode){
         print(value.toString());
       }
